@@ -33,9 +33,9 @@ function generate_json_floorp(){
 
 function generate_json_zen(){
 	base_json_zen="$(curl -s https://api.github.com/repos/zen-browser/desktop/releases/latest)"
-	url="$(echo $base_json_zen | jq -r '.assets[].browser_download_url' | grep .zen.mac-$1)"
+	url="$(echo $base_json_zen | jq -r '.assets[].browser_download_url' | grep .zen.macos-$1)"
 
-	temp_file="/tmp/zen.mac-$1.dmg"
+	temp_file="/tmp/zen.macos-$1.dmg"
 	curl -Ls -o $temp_file $url
 
 	sha256="$(shasum -a 256 $temp_file | awk '{print $1}')"
@@ -126,7 +126,7 @@ json=$(
 		"librewolf-x86_64": $(generate_json_librewolf "x86_64"),
 		"floorp-x86_64": $(generate_json_floorp "x86_64"),
 		"zen-arm64": $(generate_json_zen "aarch64"),
-		"zen-x86_64": $(generate_json_zen "x86_64")
+		"zen-x86_64": $(generate_json_zen "x64")
     }
 EOF
 )
