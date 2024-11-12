@@ -31,6 +31,17 @@ function generate_json_floorp(){
         '{version: $version, url: $url, sha256: $sha256}'
 }
 
+function generate_json_zen(){
+	base_json_zen="$(curl -s https://api.github.com/repos/zen-browser/desktop/releases/latest)"
+	url="$(echo $base_json_zen | jq -r '.assets[].browser_download_url' | grep .zen.mac-$1)"
+
+	jq -n \
+		--arg version "$(echo $base_json_zen | jq -r '.tag_name')" \
+		--arg url $url \
+		--arg sha256 "$sha256" \
+		'{version: $version, url: $url, sha256: $sha256}'
+}
+
 function get_version() {
 	curl -s "https://product-details.mozilla.org/1.0/firefox_versions.json" |
 		case $1 in
@@ -108,7 +119,9 @@ json=$(
 		"firefox-nightly": $(generate_json "firefox-nightly"),
 		"librewolf-arm64": $(generate_json_librewolf "arm64"),
 		"librewolf-x86_64": $(generate_json_librewolf "x86_64"),
-		"floorp-x86_64": $(generate_json_floorp "x86_64")
+		"floorp-x86_64": $(generate_json_floorp "x86_64"),
+		"zen-arm64": $(generate_json_zen "aarch64"),
+		"zen-x86_64": $(generate_json_zen "x86_64")
     }
 EOF
 )
