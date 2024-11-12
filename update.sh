@@ -35,6 +35,11 @@ function generate_json_zen(){
 	base_json_zen="$(curl -s https://api.github.com/repos/zen-browser/desktop/releases/latest)"
 	url="$(echo $base_json_zen | jq -r '.assets[].browser_download_url' | grep .zen.mac-$1)"
 
+	temp_file="/tmp/zen.mac-$1.dmg"
+	curl -Ls -o $temp_file $url
+
+	sha256="$(shasum -a 256 $temp_file | awk '{print $1}')"
+
 	jq -n \
 		--arg version "$(echo $base_json_zen | jq -r '.tag_name')" \
 		--arg url $url \
