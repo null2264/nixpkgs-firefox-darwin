@@ -126,7 +126,7 @@ json=$(
 		"librewolf-x86_64": $(generate_json_librewolf "x86_64"),
 		"floorp-x86_64": $(generate_json_floorp "x86_64"),
 		"zen-arm64": $(generate_json_zen "aarch64"),
-		"zen-x86_64": $(generate_json_zen "x64")
+		"zen-x86_64": $(generate_json_zen "x86_64")
     }
 EOF
 )
