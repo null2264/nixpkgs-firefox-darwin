@@ -126,6 +126,5 @@ in {
   firefox-esr-bin = firefoxPackage "firefox-esr";
   firefox-nightly-bin = firefoxPackage "firefox-nightly";
   librewolf = if super.pkgs.system == "x86_64-darwin" then librewolfPackage "librewolf-x86_64" else librewolfPackage "librewolf-arm64";
-  floorp-bin = floorpPackage "floorp-x86_64";
-  zen-bin = if super.pkgs.system == "x86_64-darwin" then zenPackage "zen-x86_64" else zenPackage "zen-arm64";
+  zen-bin = zenPackage "zen";
 }
