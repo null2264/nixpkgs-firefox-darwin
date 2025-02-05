@@ -108,8 +108,7 @@ json=$(
 		"firefox-nightly": $(generate_json "firefox-nightly"),
 		"librewolf-arm64": $(generate_json_librewolf "arm64"),
 		"librewolf-x86_64": $(generate_json_librewolf "x86_64"),
-		"zen-arm64": $(generate_json_zen "aarch64"),
-		"zen-x86_64": $(generate_json_zen "x86_64")
+		"zen": $(generate_json_zen "universal")
     }
 EOF
 )
