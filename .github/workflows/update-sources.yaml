@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - update.sh
+      - overlay.nix
 
 jobs:
   update-sources:

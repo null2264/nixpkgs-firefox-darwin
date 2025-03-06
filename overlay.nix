@@ -104,7 +104,7 @@ let
         runHook preInstall
 
         mkdir -p $out/Applications
-        cp -r "Zen Browser.app" "$out/Applications/"
+        cp -r "Zen.app" "$out/Applications/"
 
         runHook postInstall
       '';
