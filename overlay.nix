@@ -104,7 +104,7 @@ let
         runHook preInstall
 
         mkdir -p $out/Applications
-        cp -r "Zen.app" "$out/Applications/"
+        cp -r "Zen.app" "$out/Applications/Zen.app"
 
         runHook postInstall
       '';
