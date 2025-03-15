@@ -27,6 +27,7 @@ let
 
         mkdir -p "$libDir/distribution"
         POL_PATH="$libDir/distribution/policies.json"
+        rm -f "$POL_PATH"
         ln -s ${policiesJson} "$POL_PATH"
 
         runHook postInstall
@@ -70,6 +71,7 @@ let
 
         mkdir -p "$libDir/distribution"
         POL_PATH="$libDir/distribution/policies.json"
+        rm -f "$POL_PATH"
         ln -s ${policiesJson} "$POL_PATH"
 
         runHook postInstall
@@ -106,6 +108,7 @@ let
 
         mkdir -p "$libDir/distribution"
         POL_PATH="$libDir/distribution/policies.json"
+        rm -f "$POL_PATH"
         ln -s ${policiesJson} "$POL_PATH"
 
         runHook postInstall
@@ -142,6 +145,7 @@ let
 
         mkdir -p "$libDir/distribution"
         POL_PATH="$libDir/distribution/policies.json"
+        rm -f "$POL_PATH"
         ln -s ${policiesJson} "$POL_PATH"
 
         runHook postInstall
