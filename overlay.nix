@@ -1,5 +1,11 @@
 self: super:
 let
+  policies = {
+    DisableAppUpdate = true;
+  };
+
+  policiesJson = writeText "firefox-policies.json" (builtins.toJSON { inherit policies; });
+
   sources = builtins.fromJSON (builtins.readFile ./sources.json);
   firefoxPackage = edition:
     super.stdenv.mkDerivation rec {
@@ -12,8 +18,16 @@ let
       installPhase = ''
         runHook preInstall
 
+        appDir="Applications/Firefox.app"
+
         mkdir -p $out/Applications
-        cp -r Firefox*.app "$out/Applications/"
+        cp -r Firefox*.app "$out/$appDir"
+
+        libDir="$out/$appDir/Contents/Resources"
+
+        mkdir -p "$libDir/distribution"
+        POL_PATH="$libDir/distribution/policies.json"
+        ln -s ${policiesJson} "$POL_PATH"
 
         runHook postInstall
       '';
@@ -46,10 +60,18 @@ let
 
       installPhase = ''
         runHook preInstall
-    
+
+        appDir="Applications/Floorp.app"
+
         mkdir -p $out/Applications
-        cp -r Floorp.app "$out/Applications/"
-    
+        cp -r Floorp.app "$out/$appDir"
+
+        libDir="$out/$appDir/Contents/Resources"
+
+        mkdir -p "$libDir/distribution"
+        POL_PATH="$libDir/distribution/policies.json"
+        ln -s ${policiesJson} "$POL_PATH"
+
         runHook postInstall
       '';
 
@@ -75,8 +97,16 @@ let
       installPhase = ''
         runHook preInstall
 
+        appDir="Applications/LibreWolf.app"
+
         mkdir -p $out/Applications
-        cp -r LibreWolf.app "$out/Applications/"
+        cp -r LibreWolf.app "$out/$appDir"
+
+        libDir="$out/$appDir/Contents/Resources"
+
+        mkdir -p "$libDir/distribution"
+        POL_PATH="$libDir/distribution/policies.json"
+        ln -s ${policiesJson} "$POL_PATH"
 
         runHook postInstall
       '';
@@ -103,8 +133,16 @@ let
       installPhase = ''
         runHook preInstall
 
+        appDir="Applications/Zen.app"
+
         mkdir -p $out/Applications
-        cp -r "Zen.app" "$out/Applications/Zen.app"
+        cp -r "Zen.app" "$out/$appDir"
+
+        libDir="$out/$appDir/Contents/Resources"
+
+        mkdir -p "$libDir/distribution"
+        POL_PATH="$libDir/distribution/policies.json"
+        ln -s ${policiesJson} "$POL_PATH"
 
         runHook postInstall
       '';
