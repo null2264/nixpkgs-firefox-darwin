@@ -4,7 +4,7 @@ let
     DisableAppUpdate = true;
   };
 
-  policiesJson = writeText "firefox-policies.json" (builtins.toJSON { inherit policies; });
+  policiesJson = super.pkgs.writeText "firefox-policies.json" (builtins.toJSON { inherit policies; });
 
   sources = builtins.fromJSON (builtins.readFile ./sources.json);
   firefoxPackage = edition:
