@@ -16,7 +16,7 @@ function generate_json_librewolf(){
 }
 
 function generate_json_zen(){
-	base_json_zen="$(curl -s https://api.github.com/repos/zen-browser/desktop/releases/latest)"
+	base_json_zen="$(curl -s https://api.github.com/repos/zen-browser/desktop/releases/latest --header "Authorization: $GITHUB_TOKEN")"
 	url="$(echo $base_json_zen | jq -r '.assets[].browser_download_url' | grep .zen.macos-$1)"
 
 	temp_file="/tmp/zen.macos-$1.dmg"
