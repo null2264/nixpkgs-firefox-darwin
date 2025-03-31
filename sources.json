@@ -21,8 +21,8 @@
   },
   "firefox-nightly": {
     "version": "138.0a1",
-    "url": "https://download-installer.cdn.mozilla.net/pub/firefox/nightly/2025/03/2025-03-29-21-16-20-mozilla-central/firefox-138.0a1.en-US.mac.dmg",
-    "sha256": "91d557829a4acca351662fd50277d0026c4a51a8b72f43a4791b0c8c05bed123"
+    "url": "https://download-installer.cdn.mozilla.net/pub/firefox/nightly/2025/03/2025-03-30-09-32-37-mozilla-central/firefox-138.0a1.en-US.mac.dmg",
+    "sha256": "c6610cf8871c97abf75a20f8885fbf0d645a7359de77cbe89140d57da33ee948"
   },
   "librewolf-arm64": {
     "version": "136.0.4-1",
