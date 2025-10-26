@@ -35,8 +35,8 @@
     "sha256": "704f338564d65c3e27da2da85b8fec0491564b4912965f4aca854ce57fa53544"
   },
   "zen": {
-    "version": "1.17.2b",
-    "url": "https://github.com/zen-browser/desktop/releases/download/1.17.2b/zen.macos-universal.dmg",
-    "sha256": "c03fdabd2ddb7dfd78536762b5b27e08121eb607252f7ff30444a23b07be0dbb"
+    "version": "1.17.3b",
+    "url": "https://github.com/zen-browser/desktop/releases/download/1.17.3b/zen.macos-universal.dmg",
+    "sha256": "6ac138c3b5b74be03e028e21273be73eea5b657b85946294c97c6e41c30519df"
   }
 }
